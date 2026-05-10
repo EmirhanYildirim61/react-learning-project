@@ -33,23 +33,3 @@ http://localhost:3000
 ```bash
 npm run build
 ```
-
-## GitHub'a yüklemek için
-
-Repo içinde zaten `.git` bulunuyor. İlk kez GitHub'a göndermek için genel akış:
-
-```bash
-git status
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/KULLANICI_ADIN/REPO_ADI.git
-git push -u origin main
-```
-
-Eğer GitHub Desktop veya JetBrains IDE kullanıyorsan aynı işlemleri arayüzden de yapabilirsin.
-
-## Notlar
-
-- `build/` ve `node_modules/` GitHub'a eklenmemelidir.
-- Proje şu anda production build alabiliyor; sadece ESLint uyarıları var.
