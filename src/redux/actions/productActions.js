@@ -1,4 +1,5 @@
 import * as actionTypes from "./actionTypes"
+import {API_URL} from "../../api/baseUrl"
 
 export function getProductsSuccess(products) {
     return {type: actionTypes.GET_PRODUCTS_SUCCESS, payload: products}
@@ -13,7 +14,7 @@ export function updateProductSuccess(product) {
 }
 
 export function saveProductApi(product) {
-    return fetch("http://192.168.0.246:3000/products/" + (product.id || ""), {
+    return fetch(product.id ? `${API_URL}/products/${product.id}` : `${API_URL}/products`, {
         method: product.id?"PUT" : "POST",
         headers: {"content-type": "application/json"},
         body: JSON.stringify(product)
@@ -50,7 +51,7 @@ export function handleError(error) {
 
 export function getProducts(categoryId) {
     return function (dispatch) {
-        let url = "http://192.168.0.246:3000/products"
+        let url = `${API_URL}/products`
         if (categoryId) {
             url = url + "?categoryId=" + categoryId
         }
